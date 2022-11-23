@@ -1,0 +1,169 @@
+/** Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+/** vars */
+:root {
+  /** typography */
+  --font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  --text-base-size: 8vw;
+
+  /** colors */
+  --bg-color: #0f172a;
+  --font-color: #f8fafc;
+  --accent-bg-color: #701a75;
+  --accent-font-color: #fdf4ff;
+  --text-shadow: 0 0 10px #93c5fd;
+}
+
+/* reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+* {
+  scrollbar-width: none;
+}
+::-webkit-scrollbar
+{
+	width: 0px;
+}
+
+
+/** typography */
+body {
+  font-family: var(--font-family);
+  color: var(--font-color);
+  font-size: calc(var(--text-base-size) - 4.5vw);
+}
+h1, h2, h3 {
+  text-shadow: var(--text-shadow);
+  text-align: center;
+}
+h1 {
+  font-size: var(--text-base-size);
+  font-weight: bold;
+  padding: 10px 0;
+}
+h2 {
+  font-size: calc(var(--text-base-size) - 2vw);
+  font-weight: medium;
+  padding: 5px 0;
+}
+h3 {
+  font-size: calc(var(--text-base-size) - 4vw);
+}
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+code {
+  font-family: monospace;
+  background: #ffeff0;
+  color: black;
+  word-wrap: break-word;
+  box-decoration-break: clone;
+  padding: .1rem .2rem;
+  border-radius: .2rem;
+}
+code.block {
+  display: block;
+  white-space: pre;
+  width: 90vw;
+  margin: 1rem;
+  font-size: calc(var(--text-base-size) - 5.5vw);
+}
+
+/** slide structure */
+html {
+  scroll-snap-type: y mandatory;
+  background-color: var(--bg-color);
+}
+section {
+  block-size: 100vh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  position: relative;
+  padding: 20px 40px;
+}
+section.reverse-color {
+  background-color: var(--font-color);
+  color: var(--bg-color);
+}
+section.accent-color {
+  background-color: var(--accent-bg-color);
+  color: var(--accent-font-color);
+}
+section.bw {
+  background-color: white;
+  color: black;
+}
+section.wb {
+  background-color: black;
+  color: white;
+}
+section .sides {
+  display: flex;
+}
+section .sides div {
+  padding: 20px;
+  align-items: center;
+  display: flex;
+}
+
+/** video and background image styles */
+iframe {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  overflow: hidden;
+}
+img.cover {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/** print style */
+@media print {
+  @page {
+    margin: 0.5in;
+    size: landscape;
+  }
+  section {
+    width: 10in;
+    height: 7.5in;
+    page-break-after: always;
+    background-color: transparent !important;
+    color: black !important;
+    border: 1px solid #666;
+  }
+  section:last-of-type {
+    page-break-after: avoid;
+  }
+  h1, h2 {
+    text-shadow: none !important;
+  }
+  a::after{
+    content: "\A(" attr(href) ") ";
+    white-space: pre-line;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  img.background {
+    display: none;
+  }
+}
