@@ -87,6 +87,7 @@ html {
 }
 section {
   block-size: 100vh;
+  block-size: 100dvh;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   overflow: hidden;
@@ -126,6 +127,8 @@ section .sides div {
 iframe {
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
+  width: 100dvw;
   border: none;
   overflow: hidden;
 }
@@ -133,7 +136,9 @@ img.cover {
   position: absolute;
   top: 0;
   width: 100vw;
+  width: 100dvw;
   height: 100vh;
+  height: 100dvh;
   z-index: -1;
 }
 
